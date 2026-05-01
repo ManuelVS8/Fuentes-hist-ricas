@@ -93,7 +93,7 @@
         }
         .theory-intro {
             text-align: center;
-            color: #555;
+            color: #000000; /* CAMBIO: Texto en negro */
             margin-bottom: 10px;
             font-size: 1rem;
         }
@@ -147,11 +147,11 @@
             padding-top: 10px;
         }
 
-        /* JUEGO 1 NUEVO: Clasificación en Cajas */
-        .game1-layout { display: flex; flex-direction: column; height: 100%; gap: 1.2rem; padding-bottom: 1rem; }
-        .bank-area { background: #fdfdfd; background-image: radial-gradient(#cbd5e1 1px, transparent 1px); background-size: 15px 15px; padding: 15px; border-radius: 16px; min-height: 80px; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 10px; border: 2px dashed #b0bec5; }
+        /* JUEGO 1: Clasificación en Cajas */
+        .game1-layout { display: flex; flex-direction: column; height: 100%; gap: 0.8rem; padding-bottom: 0.5rem; /* CAMBIO: Reducido gap y padding */ }
+        .bank-area { background: #fdfdfd; background-image: radial-gradient(#cbd5e1 1px, transparent 1px); background-size: 15px 15px; padding: 10px; border-radius: 12px; min-height: 60px; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px; border: 2px dashed #b0bec5; /* CAMBIO: Reducido padding, min-height y gap */ }
         
-        .draggable-item { background: #ffffff; border: 1px solid #e0e0e0; color: #455a64; padding: 8px 14px; border-radius: 25px; cursor: pointer; font-weight: 600; font-size: 0.9rem; box-shadow: 0 3px 5px rgba(0,0,0,0.05); transition: all 0.2s; user-select: none; text-align: center; }
+        .draggable-item { background: #ffffff; border: 1px solid #e0e0e0; color: #455a64; padding: 6px 12px; border-radius: 25px; cursor: pointer; font-weight: 600; font-size: 0.85rem; box-shadow: 0 3px 5px rgba(0,0,0,0.05); transition: all 0.2s; user-select: none; text-align: center; /* CAMBIO: Reducido padding y font-size */ }
         .draggable-item:hover { background: #f8f9fa; transform: translateY(-2px); border-color: var(--blue-700); }
         .draggable-item.selected { background: var(--orange); color: white; border: none; transform: translateY(-2px) scale(1.05); }
         
@@ -176,16 +176,16 @@
             80% { transform: translateX(3px); }
         }
 
-        .sorting-area { flex: 1; display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+        .sorting-area { flex: 1; display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.8rem; /* CAMBIO: Reducido gap */ }
         @media (max-width: 600px) { .sorting-area { grid-template-columns: 1fr; } }
         
         .sort-box { 
             background: transparent;
-            border-radius: 12px; 
-            padding: 12px; 
+            border-radius: 10px; 
+            padding: 8px;  /* CAMBIO: Reducido padding */
             display: flex; 
             flex-direction: column; 
-            min-height: 120px; 
+            min-height: 80px; /* CAMBIO: Reducido de 120px a 80px */
             border: 2px solid;
         }
         .box-escritas { background: var(--pastel-blue); border-color: #bbdefb; }
@@ -193,9 +193,9 @@
         .box-graficas { background: var(--pastel-purple); border-color: #f3e5f5; }
         .box-materiales { background: var(--pastel-green); border-color: #e8f5e9; }
         
-        .sort-box-header { font-weight: 800; text-align: center; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 2px solid rgba(0,0,0,0.05); font-size: 1rem; display: flex; align-items: center; justify-content: center; gap: 8px; }
-        .sort-content { flex: 1; display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; align-content: flex-start; min-height: 60px; }
-        .sort-content .draggable-item { background: rgba(255,255,255,0.95); font-size: 0.8rem; padding: 5px 10px; }
+        .sort-box-header { font-weight: 800; text-align: center; margin-bottom: 6px; padding-bottom: 4px; border-bottom: 2px solid rgba(0,0,0,0.05); font-size: 0.9rem; display: flex; align-items: center; justify-content: center; gap: 6px; /* CAMBIO: Reducidos márgenes y fuente */ }
+        .sort-content { flex: 1; display: flex; flex-wrap: wrap; gap: 5px; justify-content: center; align-content: flex-start; min-height: 30px; /* CAMBIO: Reducido gap y min-height */ }
+        .sort-content .draggable-item { background: rgba(255,255,255,0.95); font-size: 0.8rem; padding: 4px 8px; /* CAMBIO: Reducidos tamaño y padding */ }
         
         .sort-box.disabled { pointer-events: none; }
 
@@ -525,7 +525,8 @@
             <h1>Fuentes históricas</h1>
         </header>
         <div class="theory-content">
-            <p class="theory-intro">Fuentes históricas: <br>Una fuente histórica es cualquier resto que nos aporta información para investigar el pasado. Se dividen en:</p>
+            <!-- CAMBIO: Texto en negro y eliminado "Fuentes históricas:" -->
+            <p class="theory-intro">Una fuente histórica es cualquier resto que nos aporta información para investigar el pasado. Se dividen en:</p>
             
             <div class="change-block natural">
                 <div class="block-title">
@@ -563,7 +564,7 @@
         </div>
     </section>
 
-    <!-- Pantalla Juego 1 (MODIFICADO) -->
+    <!-- Pantalla Juego 1 -->
     <section class="screen" id="game1Screen">
         <header>
             <h1>Clasifica los tipos de fuentes históricas</h1>
@@ -1033,21 +1034,17 @@
 
     /* --- JUEGO 2: IDENTIFICAR --- */
     const game2Data = [
-        // Written
         { type: 'Written', word: 'Documents', img: 'https://raw.githubusercontent.com/ManuelVS8/Audios-juegos-SCIENCE/refs/heads/main/C_MEDIO3/Historia/Fuentes/escrita.png' },
         { type: 'Written', word: 'Books', img: 'https://raw.githubusercontent.com/ManuelVS8/Audios-juegos-SCIENCE/refs/heads/main/C_MEDIO3/Historia/Fuentes/escrita2.png' },
         { type: 'Written', word: 'Newspapers', img: 'https://raw.githubusercontent.com/ManuelVS8/Audios-juegos-SCIENCE/refs/heads/main/C_MEDIO3/Historia/Fuentes/escrita3.png' },
         { type: 'Written', word: 'Rock inscriptions', img: 'https://raw.githubusercontent.com/ManuelVS8/Audios-juegos-SCIENCE/refs/heads/main/C_MEDIO3/Historia/Fuentes/escrita4.png' },
         { type: 'Written', word: 'Letters', img: 'https://raw.githubusercontent.com/ManuelVS8/Audios-juegos-SCIENCE/refs/heads/main/C_MEDIO3/Historia/Fuentes/escrita5.png' },
-        // Non-written - graphics
         { type: 'Graphic', word: 'Photographs', img: 'https://raw.githubusercontent.com/ManuelVS8/Audios-juegos-SCIENCE/refs/heads/main/C_MEDIO3/Historia/Fuentes/grafica.png' },
         { type: 'Graphic', word: 'Paintings', img: 'https://raw.githubusercontent.com/ManuelVS8/Audios-juegos-SCIENCE/refs/heads/main/C_MEDIO3/Historia/Fuentes/grafica2.png' },
         { type: 'Graphic', word: 'Maps', img: 'https://raw.githubusercontent.com/ManuelVS8/Audios-juegos-SCIENCE/refs/heads/main/C_MEDIO3/Historia/Fuentes/grafica4.png' },
-        // Non-written - materials
         { type: 'Material', word: 'Tools', img: 'https://raw.githubusercontent.com/ManuelVS8/Audios-juegos-SCIENCE/refs/heads/main/C_MEDIO3/Historia/Fuentes/material.png' },
         { type: 'Material', word: 'Building remains', img: 'https://raw.githubusercontent.com/ManuelVS8/Audios-juegos-SCIENCE/refs/heads/main/C_MEDIO3/Historia/Fuentes/material2.png' },
         { type: 'Material', word: 'Coins', img: 'https://raw.githubusercontent.com/ManuelVS8/Audios-juegos-SCIENCE/refs/heads/main/C_MEDIO3/Historia/Fuentes/material3.png' },
-        // Non-written - orals
         { type: 'Oral', word: 'Tales and stories', img: 'https://raw.githubusercontent.com/ManuelVS8/Audios-juegos-SCIENCE/refs/heads/main/C_MEDIO3/Historia/Fuentes/oral.png' },
         { type: 'Oral', word: 'Interviews', img: 'https://raw.githubusercontent.com/ManuelVS8/Audios-juegos-SCIENCE/refs/heads/main/C_MEDIO3/Historia/Fuentes/oral2.png' }
     ];
@@ -1068,7 +1065,6 @@
     const playWordBtn = document.getElementById('playWordBtn');
     const checkBtn = document.getElementById('checkBtn');
 
-    // Play word button
     playWordBtn.addEventListener('click', (e) => {
         e.stopPropagation();
         const word = materialWord.textContent;
@@ -1077,7 +1073,6 @@
         }
     });
 
-    // Dropdown Logic for Written
     triggerWritten.addEventListener('click', () => {
         if (game2Locked) return;
         window.speechSynthesis.cancel();
@@ -1095,7 +1090,6 @@
         triggerNonWritten.innerHTML = '<span>Non-written sources</span>';
     });
 
-    // Dropdown Logic for Non-written
     triggerNonWritten.addEventListener('click', () => {
         if (game2Locked) return;
         selectNonWritten.classList.toggle('open');
@@ -1106,7 +1100,6 @@
         if (!selectNonWritten.contains(e.target)) selectNonWritten.classList.remove('open');
     });
 
-    // Options Logic for Non-written
     selectNonWritten.querySelectorAll('.custom-option').forEach(option => {
         option.addEventListener('click', function(e) {
             e.stopPropagation();
